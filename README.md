@@ -26,6 +26,7 @@ Before running please download csv data and model from [here](https://drive.goog
     ├── pathes.json                         # File with predifiended inputs
     ├── preparations.ipynb                  # Jupyter notebook with model convertions to onnx, database creation and models training
     ├── utils.py                            # Additional functions
+    ├── demo.mp4                            # Demo of using app
     ├── requirements.txt
     └── README.md
 
@@ -46,7 +47,7 @@ First choose some fetures and insert paths of base and target image. Than use `R
 
 ### Feature extractors
 Available 2 feature extractors
-- Small ViT transformer from [Tiny Clip](https://huggingface.co/wkcn/TinyCLIP-ViT-40M-32-Text-19M-LAION400M). Input 224x224. Output: 512 features
+- ViT-B/32 transformer from [Clip]([https://huggingface.co/wkcn/TinyCLIP-ViT-40M-32-Text-19M-LAION400M](https://github.com/openai/CLIP/tree/main)). Input 224x224. Output: 512 features
 - Embedder from [Paddle Image Recognition](https://github.com/PaddlePaddle/PaddleClas/blob/release/2.5/docs/en/quick_start/quick_start_recognition_en.md). Input 224x224. Output: 512 features
 
 ### Preprocessing methods
@@ -67,7 +68,7 @@ If use augmantations final serach will use all augmented images and return top K
 ### Classification
 First classify target image and than use only images with this class from base to search similar images. For each feature extractor using different classification method:
 - ViT: Use text embeddings of 10 possible classes ["Person", "Group of People", "Clothing", "Electronic device", "Furniture", 'Animals', 'Landscape', 'City', 'Plants', 'Vehicle'] and calculate cosine similarity with target image embedding. Text embeddings created by same CLIP model as image
-- Paddle: First base embedings calculated by paddle model was separated by 10 clusters using KMeans algo. Than predicted clusters used as labels to tran SVC model on this embeddings. This model use for predicing target image class.
+- Paddle: First base embedings calculated by paddle model was separated by 10 clusters using KMeans algo. Than predicted clusters used as labels to tran SVC model on this embeddings. This model use for predicing target image class. For padding preprocess model score is 0.908125, for crop - 0.92375
 
 ### PCA
 Before image search PCA can be applied to decrease dimentionality of embeddings space in order to speed up serach. 
@@ -90,4 +91,4 @@ Realized using cosine similarity. Target image converted in embeding using some 
 
 ## Demo
 
-[![DEMO]](https://raw.githubusercontent.com/Zhovtukhin/simple_image_search_demo/main/assets/demo.mp4)
+Download demo from google drive folder above
