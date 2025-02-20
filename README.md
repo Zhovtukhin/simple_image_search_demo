@@ -47,7 +47,7 @@ First choose some fetures and insert paths of base and target image. Than use `R
 
 ### Feature extractors
 Available 2 feature extractors
-- ViT-B/32 transformer from [Clip]([https://huggingface.co/wkcn/TinyCLIP-ViT-40M-32-Text-19M-LAION400M](https://github.com/openai/CLIP/tree/main)). Input 224x224. Output: 512 features
+- ViT-B/32 transformer from [Clip](https://github.com/openai/CLIP/tree/main). Input 224x224. Output: 512 features
 - Embedder from [Paddle Image Recognition](https://github.com/PaddlePaddle/PaddleClas/blob/release/2.5/docs/en/quick_start/quick_start_recognition_en.md). Input 224x224. Output: 512 features
 
 ### Preprocessing methods
