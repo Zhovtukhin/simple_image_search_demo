@@ -80,10 +80,11 @@ Before image search PCA can be applied to decrease dimentionality of embeddings 
 Realized using cosine similarity. Target image converted in embeding using some model and than it use to find most similar with base. Base created by the same model and preprocessing method. If using aumentation for each image top K images selected and than choose K base images with bigger score among all.
 
 ## Possible improvments:
-- Use CUDA to run model faster (TensorRT for example)
+- Filter 18+ images in search results because some images in base are sensative (trained CNN classifier or use CLIP for excample)
 - Realize one more type of search using keypoints and discriptors (SIFT for example) for database and matching. Probably will be slow due to matching target image with all base.
 - Use FAISS library to increase search speed. Dont use it because it use Euclidian distance by defoult
 - Apply PCA using FAISS
+- Use CUDA to run model faster (TensorRT for example)
 - Use bigger models to get better embeddings
 - Use more augmantations
 - Use CNN for classification before search
